@@ -71,7 +71,7 @@ const BACKLOG_PLANNING = {
         ],
         tasks: [
           { id: 'T-02-1', title: 'Diseñar layout del Home (piso madera)', assignedTo: 'Adolfo Andrey Quiceno', role: 'UX/UI' },
-          { id: 'T-02-2', title: 'Integrar imagen de botella y contador', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-02-2', title: 'Integrar imagen de botella y contador', assignedTo: 'José Martínez', role: 'Frontend' },
           { id: 'T-02-3', title: 'Implementar botón parpadeante y animación', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
           { id: 'T-02-4', title: 'Agregar control de sonido de fondo', assignedTo: 'Juan Francesco Garcia', role: 'Frontend' },
         ],
@@ -100,7 +100,7 @@ const BACKLOG_PLANNING = {
         ],
         tasks: [
           { id: 'T-03-1', title: 'Implementar componente Toolbar', assignedTo: 'Adolfo Andrey Quiceno', role: 'UX/UI' },
-          { id: 'T-03-2', title: 'Conectar acciones de navegación y audio', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-03-2', title: 'Conectar acciones de navegación y audio', assignedTo: 'José Martínez', role: 'Frontend' },
         ],
       },
 
@@ -119,7 +119,7 @@ const BACKLOG_PLANNING = {
           'Comportamiento de calificación simulado y documentado.',
         ],
         tasks: [
-          { id: 'T-04-1', title: 'Implementar acción de calificación (link/simulación)', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-04-1', title: 'Implementar acción de calificación (link/simulación)', assignedTo: 'José Martínez', role: 'Frontend' },
         ],
       },
 
@@ -143,7 +143,7 @@ const BACKLOG_PLANNING = {
         ],
         tasks: [
           { id: 'T-05-1', title: 'Crear vista de instrucciones y estilos', assignedTo: 'Adolfo Andrey Quiceno', role: 'UX/UI' },
-          { id: 'T-05-2', title: 'Implementar pausa/restauración de audio en navegación', assignedTo: 'Juan Francesco Garcia', role: 'Frontend' },
+          { id: 'T-05-2', title: 'Implementar pausa/restauración de audio en navegación', assignedTo: 'Dylan Morales', role: 'Frontend' },
         ],
       },
 
@@ -170,7 +170,7 @@ const BACKLOG_PLANNING = {
           'List rendering y orden correcto (nuevos arriba).',
         ],
         tasks: [
-          { id: 'T-06-1', title: 'Diseñar vista de lista de retos', assignedTo: 'Adolfo Andrey Quiceno', role: 'UX/UI' },
+          { id: 'T-06-1', title: 'Diseñar vista de lista de retos', assignedTo: 'José Martínez', role: 'UX/UI' },
           { id: 'T-06-2', title: 'Implementar almacenamiento local y modelo de reto', assignedTo: 'Juan Francesco Garcia', role: 'Backend' },
           { id: 'T-06-3', title: 'Implementar lista con scroll y FAB', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
         ],
@@ -195,8 +195,8 @@ const BACKLOG_PLANNING = {
           'Diálogo funcional, validaciones de input implementadas y almacenamiento probado.',
         ],
         tasks: [
-          { id: 'T-07-1', title: 'Implementar componente de diálogo agregar', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
-          { id: 'T-07-2', title: 'Validar comportamiento de enable/disable del botón Guardar', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-07-1', title: 'Implementar componente de diálogo agregar', assignedTo: 'José Martínez', role: 'Frontend' },
+          { id: 'T-07-2', title: 'Validar comportamiento de enable/disable del botón Guardar', assignedTo: 'Dylan Morales', role: 'Frontend' },
         ],
       },
 
@@ -218,7 +218,7 @@ const BACKLOG_PLANNING = {
           'Edición persistente y UI actualiza inmediatamente.',
         ],
         tasks: [
-          { id: 'T-08-1', title: 'Implementar diálogo editar con carga de datos', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-08-1', title: 'Implementar diálogo editar con carga de datos', assignedTo: 'Adolfo Andrey Quiceno', role: 'Frontend' },
           { id: 'T-08-2', title: 'Guardar cambios en almacenamiento local', assignedTo: 'Juan Francesco Garcia', role: 'Backend' },
         ],
       },
@@ -240,8 +240,8 @@ const BACKLOG_PLANNING = {
           'Eliminación persistente y actualización inmediata de la lista.',
         ],
         tasks: [
-          { id: 'T-09-1', title: 'Implementar diálogo de confirmación', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
-          { id: 'T-09-2', title: 'Eliminar registro en almacenamiento local', assignedTo: 'Juan Francesco Garcia', role: 'Backend' },
+          { id: 'T-09-1', title: 'Implementar diálogo de confirmación', assignedTo: 'José Martínez', role: 'Frontend' },
+          { id: 'T-09-2', title: 'Eliminar registro en almacenamiento local', assignedTo: 'Dylan Morales', role: 'Backend' },
         ],
       },
 
@@ -261,7 +261,7 @@ const BACKLOG_PLANNING = {
           'Share sheet funciona en emulador y dispositivo; texto correcto.',
         ],
         tasks: [
-          { id: 'T-10-1', title: 'Implementar acción de compartir utilizando API nativa', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
+          { id: 'T-10-1', title: 'Implementar acción de compartir utilizando API nativa', assignedTo: 'Dylan Morales', role: 'Frontend' },
         ],
       },
 
@@ -313,7 +313,7 @@ const BACKLOG_PLANNING = {
         ],
         tasks: [
           { id: 'T-12-1', title: 'Implementar diálogo personalizado y estilos', assignedTo: 'Adolfo Andrey Quiceno', role: 'UX/UI' },
-          { id: 'T-12-2', title: 'Consumir API de pokémon y mapear imagen aleatoria', assignedTo: 'Juan Francesco Garcia', role: 'Frontend' },
+          { id: 'T-12-2', title: 'Consumir API de pokémon y mapear imagen aleatoria', assignedTo: 'Dylan Morales', role: 'Frontend' },
           { id: 'T-12-3', title: 'Mostrar texto de reto aleatorio desde DB local', assignedTo: 'Ivan Ausecha', role: 'Frontend' },
         ],
       },

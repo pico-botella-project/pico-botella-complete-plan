@@ -70,6 +70,17 @@ function csvEscape(value) {
   return '"' + String(value ?? '').replace(/"/g, '""') + '"';
 }
 
+function getAssigneeEmail(name) {
+  const assigneeMap = {
+    'Ivan Ausecha': 'ivan.ausecha@correounivalle.edu.co',
+    'Juan Francesco Garcia': 'juan.francesco.garcia@correounivalle.edu.co',
+    'José Martínez': 'jose.armando.martinez@correounivalle.edu.co',
+    'Adolfo Andrey Quiceno': 'adolfo.quiceno@correounivalle.edu.co',
+    'Dylan Morales': 'dylan.morales@correounivalle.edu.co',
+  };
+  return assigneeMap[name] || '';
+}
+
 function derivePriority(points) {
   if (points >= 8) return "High";
   if (points >= 5) return "Medium";
@@ -98,13 +109,15 @@ function buildJiraCsv(backlog) {
 
   epics.forEach((epic) => {
     const epicId = `tmp-epic-${epic.id}`;
+    const epicLead = stories.find((story) => story.epic === epic.id);
+    const epicAssignee = epicLead ? epicLead.assignedTo : "Adolfo Andrey Quiceno";
     rows.push([
       csvEscape("Epic"),
       csvEscape(epicId),
       csvEscape(""),
       csvEscape(epic.title || epic.name || epic.id),
       csvEscape(epic.description || "Epic del Sprint 1"),
-      csvEscape(""),
+      csvEscape(getAssigneeEmail(epicAssignee)),
       csvEscape("Medium"),
       csvEscape(["picobotella", "sprint1", epic.id].filter(Boolean).join(";")),
       csvEscape(""),
@@ -123,7 +136,7 @@ function buildJiraCsv(backlog) {
       csvEscape(parentId),
       csvEscape(story.title || ""),
       csvEscape(story.description || ""),
-      csvEscape(""),
+      csvEscape(getAssigneeEmail(story.assignedTo || "")),
       csvEscape(derivePriority(story.points || 0)),
       csvEscape(labels),
       csvEscape(story.points || 0),
@@ -139,7 +152,7 @@ function buildJiraCsv(backlog) {
         csvEscape(storyId),
         csvEscape(task.title || ""),
         csvEscape(task.description || task.role || ""),
-        csvEscape(""),
+        csvEscape(getAssigneeEmail(task.assignedTo || "")),
         csvEscape("Medium"),
         csvEscape(["picobotella", "sprint1", task.role, story.epic].filter(Boolean).join(";")),
         csvEscape(""),

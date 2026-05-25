@@ -237,7 +237,7 @@ const PROJECT_DATA = {
   links: {
     jira: {
       label: "Jira",
-      url: "https://jira.example.com",
+      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PICO/boards/68/backlog?selectedIssue=PICO-1&atlOrigin=eyJpIjoiMTRmZDY5NmVmMzM4NDllZjgwOGU4YmEyOWU4ZDE5YzQiLCJwIjoiaiJ9",
       icon: "J",
       description: "Tablero de planeación y seguimiento del sprint.",
     },
