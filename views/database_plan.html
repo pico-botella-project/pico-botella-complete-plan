@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modelo de datos local del proyecto Pico Botella"
+    />
+    <title>Modelo de Datos - Pico Botella</title>
+    <link rel="icon" type="image/svg+xml" href="../pico-botella-icon.svg" />
+    <link rel="stylesheet" href="../styles/user_stories.css" />
+    <link rel="stylesheet" href="../styles/database_plan.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">
+            <span class="logo-icon"></span>
+            Planificación de Datos Locales
+          </h1>
+          <div class="project-info">
+            <span class="project-name">Pico Botella</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center">
+            <a
+              href="../index.html"
+              class="back-button"
+              aria-label="Volver al inicio"
+            >
+              <span>←</span> Inicio
+            </a>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Cambiar tema"
+            >
+              <span class="theme-icon">Oscuro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <!-- Información del proyecto -->
+        <section class="info-section">
+          <p class="info-description" id="db-description">
+            Modelo relacional optimizado para PostgreSQL con las tablas
+            principales y sus relaciones.
+          </p>
+        </section>
+
+        <!-- Error State -->
+        <div id="error-state" class="error-state" hidden role="alert">
+          <h2>Error al cargar información</h2>
+          <p id="error-message"></p>
+        </div>
+
+        <!-- Lista de tablas -->
+        <section class="tables-section">
+          <h2 class="section-title">Tablas de la Base de Datos</h2>
+          <div id="tables-list" class="tables-grid">
+            <!-- Se cargará dinámicamente -->
+          </div>
+        </section>
+
+        <p class="footer-note" id="db-note">
+          Notas: PK = Primary Key, FK = Foreign Key. Ajusta campos y tipos según
+          necesidades (ej. índices, constraints, JSONB para reportes y
+          configuraciones).
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Finanz - Gestor de Finanzas Personales</p>
+        <p>Estructura de base de datos para el proyecto</p>
+      </div>
+    </footer>
+
+    <script src="../data/database_data.js"></script>
+    <script src="../scripts/database_plan.js"></script>
+  </body>
+</html>

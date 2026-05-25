@@ -1,0 +1,286 @@
+/* ==================== Estilos específicos para Mapa de Sitio ==================== */
+
+.info-section {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.info-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Leyenda de badges */
+.badge-legend {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+}
+
+.badge-public {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.badge-private {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-color: #6ee7b7;
+}
+
+.badge-admin {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+[data-theme="dark"] .badge-public {
+  background-color: #1e3a8a;
+  color: #bfdbfe;
+  border-color: #3b82f6;
+}
+
+[data-theme="dark"] .badge-private {
+  background-color: #064e3b;
+  color: #a7f3d0;
+  border-color: #10b981;
+}
+
+[data-theme="dark"] .badge-admin {
+  background-color: #7f1d1d;
+  color: #fecaca;
+  border-color: #ef4444;
+}
+
+/* Botones de control */
+.control-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-control {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-control:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Árbol del sitio */
+.site-tree-section {
+  margin-top: 1.5rem;
+}
+
+.site-tree {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.tree-root {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.zone-container {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.zone-container:hover {
+  border-color: var(--primary-color);
+}
+
+.zone-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.zone-toggle {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.zone-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.zone-info {
+  flex: 1;
+}
+
+.zone-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.zone-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.zone-pages {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.page-card {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.page-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.page-public {
+  background-color: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.page-private {
+  background-color: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+.page-admin {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+}
+
+[data-theme="dark"] .page-public {
+  background-color: #1e293b;
+  border-color: #3b82f6;
+}
+
+[data-theme="dark"] .page-private {
+  background-color: #1e2f27;
+  border-color: #10b981;
+}
+
+[data-theme="dark"] .page-admin {
+  background-color: #2f1e1e;
+  border-color: #ef4444;
+}
+
+.page-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.page-description {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-note {
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .badge-legend {
+    justify-content: center;
+  }
+
+  .control-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zone-pages {
+    grid-template-columns: 1fr;
+  }
+
+  .zone-header {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-section {
+    padding: 1rem;
+  }
+
+  .site-tree {
+    padding: 1rem;
+  }
+
+  .zone-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .zone-name {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,518 @@
+/* ================================================================
+  design_patterns.css — Patrones de Diseño · Pico Botella
+   Depende de: styles/user_stories.css (variables y reset global)
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   Animaciones
+   ---------------------------------------------------------------- */
+@keyframes dp-slideDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dp-fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------------------------------------------
+   Layout
+   ---------------------------------------------------------------- */
+.main {
+  flex: 1;
+  padding: 2rem 0 4rem;
+}
+
+/* ----------------------------------------------------------------
+   Sección introductoria
+   ---------------------------------------------------------------- */
+#dp-intro {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  animation: dp-slideDown 0.4s ease both;
+}
+
+.dp-intro-badge-row {
+  margin-bottom: 1rem;
+}
+
+.dp-intro-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.dp-intro-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.dp-intro-subtitle {
+  font-size: 1.0625rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.dp-intro-description {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+  max-width: 80ch;
+}
+
+/* Stats row */
+.dp-intro-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.dp-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  min-width: 100px;
+  gap: 0.2rem;
+}
+
+.dp-stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.dp-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------------
+   TOC — Índice de categorías
+   ---------------------------------------------------------------- */
+#dp-toc {
+  margin-bottom: 2.5rem;
+  animation: dp-fadeUp 0.4s ease 0.05s both;
+  scroll-margin-top: 5rem;
+}
+
+.section-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.toc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.toc-card-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.toc-card-count {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+/* Colores por categoría */
+.toc-indigo  { background: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
+.toc-amber   { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.toc-emerald { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+.toc-rose    { background: #fff1f2; border-color: #fecdd3; color: #9f1239; }
+.toc-violet  { background: #f5f3ff; border-color: #ddd6fe; color: #4c1d95; }
+
+[data-theme="dark"] .toc-indigo  { background: #1e1b4b; border-color: #3730a3; color: #a5b4fc; }
+[data-theme="dark"] .toc-amber   { background: #2d1e00; border-color: #92400e; color: #fcd34d; }
+[data-theme="dark"] .toc-emerald { background: #022c22; border-color: #065f46; color: #6ee7b7; }
+[data-theme="dark"] .toc-rose    { background: #4c0519; border-color: #9f1239; color: #fda4af; }
+[data-theme="dark"] .toc-violet  { background: #2e1065; border-color: #4c1d95; color: #ddd6fe; }
+
+/* ----------------------------------------------------------------
+   Sección de categorías
+   ---------------------------------------------------------------- */
+#dp-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dp-category-block {
+  border-radius: 16px;
+  border: 1px solid;
+  overflow: hidden;
+  animation: dp-fadeUp 0.35s ease both;
+  scroll-margin-top: 5rem;
+}
+
+/* Variantes de color de bloque */
+.card-indigo  { background: var(--bg-primary); border-color: #c7d2fe; }
+.card-amber   { background: var(--bg-primary); border-color: #fde68a; }
+.card-emerald { background: var(--bg-primary); border-color: #a7f3d0; }
+.card-rose    { background: var(--bg-primary); border-color: #fecdd3; }
+.card-violet  { background: var(--bg-primary); border-color: #ddd6fe; }
+
+/* Acento de color en la franja superior */
+.card-indigo  { border-top: 4px solid #6366f1; }
+.card-amber   { border-top: 4px solid #f59e0b; }
+.card-emerald { border-top: 4px solid #10b981; }
+.card-rose    { border-top: 4px solid #f43f5e; }
+.card-violet  { border-top: 4px solid #8b5cf6; }
+
+.dp-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.dp-category-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dp-category-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.dp-category-count {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 0.15rem 0.5rem;
+  font-weight: 600;
+}
+
+.dp-back-toc {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.dp-back-toc:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.dp-category-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.dp-patterns-list {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* ----------------------------------------------------------------
+   Acordeones de patrones
+   ---------------------------------------------------------------- */
+.pattern-accordion {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pattern-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family);
+  transition: background-color 0.2s ease;
+}
+
+.pattern-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+.pattern-btn[aria-expanded="true"] {
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pattern-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px;
+}
+
+.pattern-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.pattern-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pattern-arrow {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.pattern-btn[aria-expanded="true"] .pattern-arrow {
+  color: var(--primary-color);
+}
+
+/* Tipo de patrón — badge con color de categoría */
+.pattern-type {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.type-indigo  { background: #eef2ff; color: #4338ca; }
+.type-amber   { background: #fffbeb; color: #b45309; }
+.type-emerald { background: #ecfdf5; color: #047857; }
+.type-rose    { background: #fff1f2; color: #be123c; }
+.type-violet  { background: #f5f3ff; color: #6d28d9; }
+
+[data-theme="dark"] .type-indigo  { background: #1e1b4b; color: #a5b4fc; }
+[data-theme="dark"] .type-amber   { background: #2d1e00; color: #fcd34d; }
+[data-theme="dark"] .type-emerald { background: #022c22; color: #6ee7b7; }
+[data-theme="dark"] .type-rose    { background: #4c0519; color: #fda4af; }
+[data-theme="dark"] .type-violet  { background: #2e1065; color: #ddd6fe; }
+
+/* ----------------------------------------------------------------
+   Panel de contenido del patrón
+   ---------------------------------------------------------------- */
+.pattern-panel {
+  background: var(--bg-primary);
+}
+
+.pattern-panel-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pattern-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.pattern-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.pattern-section p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Intent */
+.pattern-intent {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--primary-color);
+  padding: 0.875rem 1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.pattern-intent .pattern-section-title { color: var(--primary-color); }
+.pattern-intent p { color: var(--text-primary); font-style: italic; }
+
+/* Solution */
+.pattern-solution {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+
+/* Benefits */
+.pattern-benefits {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pattern-benefits li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Related files */
+.pattern-related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pattern-related-list li {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.pattern-related-list code {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.8rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------------
+   Footer
+   ---------------------------------------------------------------- */
+.footer {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* ----------------------------------------------------------------
+   Responsive
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #dp-intro {
+    padding: 1.5rem;
+  }
+
+  .dp-intro-title {
+    font-size: 1.5rem;
+  }
+
+  .toc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dp-category-header {
+    flex-wrap: wrap;
+  }
+
+  .dp-patterns-list {
+    padding: 0.75rem 0.875rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toc-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dp-intro-stats {
+    gap: 0.5rem;
+  }
+
+  .pattern-btn {
+    padding: 0.75rem;
+  }
+
+  .pattern-btn-left {
+    gap: 0.5rem;
+  }
+
+  .pattern-panel-body {
+    padding: 1rem 0.875rem;
+  }
+}

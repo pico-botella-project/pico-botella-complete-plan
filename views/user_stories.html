@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Historias de usuario, epicas y sprint del proyecto Pico Botella"
+    />
+    <title>Historias de Usuario - Pico Botella</title>
+    <link rel="icon" type="image/svg+xml" href="../pico-botella-icon.svg" />
+    <link rel="stylesheet" href="../styles/user_stories.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">
+            <span class="logo-icon"></span>
+            Historias de Usuario
+          </h1>
+          <div class="project-info">
+            <span class="project-name">Pico Botella</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center">
+            <a
+              href="../index.html"
+              class="back-button"
+              aria-label="Volver al inicio"
+            >
+              <span>←</span> Inicio
+            </a>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Cambiar tema"
+            >
+              <span class="theme-icon">🌙</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <!-- Filtros y búsqueda -->
+        <section class="controls" aria-label="Controles de filtrado">
+          <div class="search-box">
+            <label for="search-input" class="sr-only">Buscar historias</label>
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="🔍 Buscar por título, código o descripción..."
+              aria-describedby="search-help"
+            />
+            <span id="search-help" class="sr-only"
+              >Escribe para filtrar las historias en tiempo real</span
+            >
+          </div>
+
+          <div class="filter-group">
+            <label for="epic-filter" class="filter-label"
+              >Filtrar por Épica:</label
+            >
+            <select id="epic-filter" class="epic-filter">
+              <option value="all">Todas las épicas</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sprint-filter" class="filter-label"
+              >Filtrar por Sprint:</label
+            >
+            <select id="sprint-filter" class="sprint-filter epic-filter">
+              <option value="all">Todos los sprints</option>
+              <option value="S1">Sprint 1 - MVP móvil</option>
+            </select>
+          </div>
+
+          <div class="stats" id="stats">
+            <span class="stat-item">
+              <strong id="total-stories">0</strong> historias
+            </span>
+            <span class="stat-item">
+              <strong id="visible-stories">0</strong> mostradas
+            </span>
+          </div>
+        </section>
+
+        <!-- Lista de historias -->
+        <section
+          class="stories-section"
+          aria-label="Lista de historias de usuario"
+        >
+          <div id="stories-container" class="stories-grid">
+            <!-- Las historias se cargarán dinámicamente aquí -->
+          </div>
+
+          <div id="empty-state" class="empty-state" hidden>
+            <span class="empty-icon">🔍</span>
+            <h2>No se encontraron historias</h2>
+            <p>Intenta con otros criterios de búsqueda o filtro.</p>
+          </div>
+
+          <div id="error-state" class="error-state" hidden role="alert">
+            <span class="error-icon">⚠️</span>
+            <h2>Error al cargar historias</h2>
+            <p id="error-message"></p>
+            <button id="retry-button" class="retry-button">Reintentar</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Pico Botella - Dispositivos Moviles</p>
+        <p>Generado con ❤️ para gestión ágil de proyectos</p>
+      </div>
+    </footer>
+
+    <!-- Modal para ver detalles de historia -->
+    <div
+      id="modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      hidden
+      style="display: none"
+    >
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content" id="modal-content">
+        <!-- Contenido dinámico -->
+      </div>
+    </div>
+
+    <script src="../data/backlog_planning.js"></script>
+    <script src="../scripts/historias-usuario.js"></script>
+  </body>
+</html>

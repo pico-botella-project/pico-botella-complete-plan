@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgIA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14532d"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="60" fill="url(#bgIA)"/>
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+  <!-- Body / shoulders -->
+  <ellipse cx="60" cy="97" rx="30" ry="18" fill="#14532d"/>
+  <!-- Neck -->
+  <rect x="54" y="73" width="12" height="12" rx="4" fill="#c8956c"/>
+  <!-- Head -->
+  <ellipse cx="60" cy="62" rx="21" ry="23" fill="#c8956c"/>
+  <!-- Hair - shorter, darker -->
+  <ellipse cx="60" cy="43" rx="21" ry="9" fill="#2d1b0e"/>
+  <rect x="39" y="43" width="7" height="10" rx="3" fill="#2d1b0e"/>
+  <rect x="74" y="43" width="7" height="10" rx="3" fill="#2d1b0e"/>
+  <!-- Beard hint -->
+  <path d="M44 75 Q60 84 76 75" fill="#2d1b0e" opacity="0.25"/>
+  <!-- Eyes -->
+  <ellipse cx="52" cy="62" rx="4" ry="3.5" fill="#fff"/>
+  <circle cx="52" cy="62" r="2.2" fill="#2d1b0e"/>
+  <ellipse cx="68" cy="62" rx="4" ry="3.5" fill="#fff"/>
+  <circle cx="68" cy="62" r="2.2" fill="#2d1b0e"/>
+  <!-- Eyebrows -->
+  <path d="M47 56 Q52 54 57 56" stroke="#2d1b0e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M63 56 Q68 54 73 56" stroke="#2d1b0e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M59 68 Q58 72 62 72" stroke="#a07050" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth - slight smile -->
+  <path d="M53 77 Q60 82 67 77" stroke="#a07050" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Shirt -->
+  <path d="M44 92 L50 82 L60 86 L70 82 L76 92" fill="#059669" stroke="none"/>
+  <!-- Initials badge -->
+  <circle cx="95" cy="25" r="14" fill="#10b981" stroke="#fff" stroke-width="2"/>
+  <text x="95" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#fff">IA</text>
+</svg>

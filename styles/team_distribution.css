@@ -1,0 +1,802 @@
+/* ===================================
+   Team Distribution - Modern Styles with Toggles
+   Extends: user_stories.css (base)
+   Similar to: site_map.css (toggle pattern)
+   =================================== */
+
+/* ===================================
+   Info Section
+   =================================== */
+.info-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+.info-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===================================
+   Section Titles
+   =================================== */
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.section-description {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ===================================
+   Roles & Sprints Containers
+   =================================== */
+.roles-section,
+.sprints-section {
+  margin-bottom: 3rem;
+}
+
+.roles-container,
+.sprints-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===================================
+   Zone Container (Toggle Style)
+   Similar to site_map.css
+   =================================== */
+.zone-container {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.zone-container:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Zone Header */
+.zone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.zone-header:hover {
+  background: var(--bg-secondary);
+}
+
+.zone-header.sprint-header {
+  color: white;
+}
+
+.zone-header.sprint-header:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.zone-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Role Icon */
+.role-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Sprint Number */
+.sprint-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Zone Name & Count */
+.zone-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.zone-count {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Zone Toggle Button */
+.zone-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.zone-toggle:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.toggle-icon {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Zone Content */
+.zone-content {
+  padding: 0 1.5rem 1.5rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   Role Responsibilities
+   =================================== */
+.role-responsibilities h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.role-responsibilities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.role-responsibilities li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.role-responsibilities li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* ===================================
+   Sprint Tasks
+   =================================== */
+.sprint-tasks {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sprint-task-group {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sprint-task-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.task-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 0.75rem;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.task-list li {
+  padding-left: 1.25rem;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.task-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* ===================================
+   Loading & Error States
+   =================================== */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-state {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.error-state h2 {
+  color: #dc2626;
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.error-state p {
+  color: #991b1b;
+  margin: 0;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .zone-header {
+    padding: 1rem;
+  }
+
+  .zone-content {
+    padding: 0 1rem 1rem;
+  }
+
+  .zone-header-left {
+    gap: 0.75rem;
+  }
+
+  .role-icon,
+  .sprint-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.875rem;
+  }
+
+  .sprint-number {
+    font-size: 1.25rem;
+  }
+
+  .zone-name {
+    font-size: 1rem;
+  }
+
+  .zone-count {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-section {
+    padding: 1rem;
+  }
+
+  .info-description {
+    font-size: 0.9375rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .zone-header-left {
+    gap: 0.5rem;
+  }
+
+  .role-icon,
+  .sprint-number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+  }
+
+  .sprint-number {
+    font-size: 1.125rem;
+  }
+
+  .zone-name {
+    font-size: 0.9375rem;
+  }
+
+  .sprint-tasks {
+    gap: 1rem;
+  }
+}
+
+/* ===================================
+  Pico Botella - Sprint Metric Cards
+   =================================== */
+.sprint-metric-card {
+  background: var(--card-bg, var(--bg-primary));
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sprint-metric-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.sprint-metric-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.35rem;
+}
+
+/* ===================================
+  Pico Botella - Sprint Card (flat layout)
+   =================================== */
+.sprint-card {
+  background: var(--card-bg, var(--bg-primary));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.sprint-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.sprint-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sprint-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.sprint-card-goal {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.5;
+}
+
+.sprint-team-note {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-style: italic;
+  margin: 0.25rem 0 0 0;
+}
+
+.sprint-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.sprint-pts-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.sprint-duration {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ===================================
+  Pico Botella - Story Block
+   =================================== */
+.sprint-stories {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.story-block {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.story-block-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.story-block-code {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.story-block-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 120px;
+}
+
+.story-block-pts {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  background: var(--bg-primary);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.story-block-assignee {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+/* ===================================
+  Pico Botella - Task Table
+   =================================== */
+.story-tasks {
+  padding: 0.5rem 1rem 0.75rem;
+}
+
+.tasks-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 150px 130px;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.25rem;
+}
+
+.tasks-col {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 150px 130px;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.task-row:nth-child(odd) {
+  background: var(--bg-secondary);
+}
+
+.task-id {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+.task-title {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.task-assignee {
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.task-role-badge {
+  font-size: 0.7rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.no-tasks,
+.no-stories {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 600px) {
+  .tasks-header,
+  .task-row {
+    grid-template-columns: 60px 1fr;
+  }
+  .tasks-col-assignee,
+  .tasks-col-role,
+  .task-assignee,
+  .task-role-badge {
+    display: none;
+  }
+  .sprint-card-header {
+    flex-direction: column;
+  }
+  .sprint-card-meta {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+}
+
+/* ===================================
+   Task Counters
+   =================================== */
+
+/* Global counter card */
+.counter-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 2rem;
+}
+
+.counter-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.counter-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.counter-card-total {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+/* Per-sprint counter (compact version inside sprint card) */
+.sprint-task-counter {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+}
+
+.sprint-counter-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Shared counter table */
+.task-counter-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-counter-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 42px 40px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sprint-task-counter .task-counter-row {
+  grid-template-columns: 140px 1fr 36px 36px;
+}
+
+.task-counter-dev {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sprint-task-counter .task-counter-dev {
+  font-size: 0.78rem;
+}
+
+.task-counter-bar-wrap {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.sprint-task-counter .task-counter-bar-wrap {
+  height: 6px;
+}
+
+.task-counter-bar {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 3px;
+  transition: width 0.4s ease;
+}
+
+.task-counter-count {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.sprint-task-counter .task-counter-count {
+  font-size: 0.8rem;
+}
+
+.task-counter-pct {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .task-counter-row {
+    grid-template-columns: 110px 1fr 36px 36px;
+  }
+  .sprint-task-counter .task-counter-row {
+    grid-template-columns: 100px 1fr 32px 32px;
+  }
+}

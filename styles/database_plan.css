@@ -1,0 +1,181 @@
+/* ==================== Estilos específicos para Diagrama de Base de Datos ==================== */
+
+.info-section {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.info-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Diagrama SVG */
+.diagram-section {
+  margin-top: 1.5rem;
+}
+
+.erd-diagram {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
+
+#erd-svg {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+}
+
+/* Estilos para elementos SVG */
+.table-title {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+.field {
+  font-family: var(--font-family);
+  font-size: 13px;
+  fill: var(--text-primary);
+  opacity: 0.9;
+}
+
+.field-pk {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 700;
+  fill: #0d6efd;
+}
+
+.field-fk {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 600;
+  fill: #198754;
+}
+
+/* Lista de tablas */
+.tables-section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.table-card {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border-left-width: 4px;
+  border-left-style: solid;
+  transition: var(--transition);
+}
+
+.table-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.table-card-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.table-fields-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.table-field {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-field:last-child {
+  border-bottom: none;
+}
+
+.table-field.field-primary {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.table-field.field-foreign {
+  color: #198754;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .table-field.field-primary {
+  color: #6ea8fe;
+}
+
+[data-theme="dark"] .table-field.field-foreign {
+  color: #75b798;
+}
+
+.footer-note {
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tables-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erd-diagram {
+    padding: 1rem;
+  }
+
+  #erd-svg {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-section {
+    padding: 1rem;
+  }
+
+  .table-card {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+}

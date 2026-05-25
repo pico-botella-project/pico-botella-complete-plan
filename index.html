@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pico Botella - Aplicacion movil del curso Dispositivos Moviles. Documentacion tecnica del proyecto."
+    />
+    <title>Pico Botella - Documentacion del Proyecto</title>
+    <link rel="icon" type="image/svg+xml" href="pico-botella-icon.svg" />
+    <link rel="stylesheet" href="styles/user_stories.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===== CABECERA ===== -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <img
+              id="header-logo"
+              src="pico-botella-icon.svg"
+              alt="Pico Botella"
+              class="logo-img"
+            />
+            <div class="logo-text">
+              <h1 class="logo-title" id="header-title"></h1>
+              <p class="logo-subtitle" id="header-subtitle"></p>
+            </div>
+          </div>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Cambiar tema"
+          >
+            <span class="theme-icon">Oscuro</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="main">
+      <div class="container">
+        <!-- Bienvenida -->
+        <section class="welcome-section" aria-label="Bienvenida">
+          <h2 class="welcome-title" id="welcome-title">
+            Documentacion del Proyecto
+          </h2>
+          <p class="welcome-description" id="welcome-description">
+            Cargando...
+          </p>
+        </section>
+
+        <!-- Cuadricula de navegacion (renderizada desde index_data.js) -->
+        <nav
+          class="navigation-grid"
+          id="navigation-grid"
+          aria-label="Secciones del proyecto"
+        >
+          <!-- Renderizado dinamico desde scripts/index.js -->
+        </nav>
+      </div>
+    </main>
+
+    <!-- ===== PIE DE PAGINA ===== -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Renderizado dinamico desde scripts/index.js -->
+      </div>
+    </footer>
+
+    <!-- Datos primero, luego el motor de renderizado -->
+    <script src="data/config.data.js"></script>
+    <script src="data/index_data.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

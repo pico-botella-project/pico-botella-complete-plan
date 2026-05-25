@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Patrones de diseno arquitecturales y de software aplicados al proyecto Pico Botella"
+    />
+    <title>Patrones de Diseno - Pico Botella</title>
+    <link rel="icon" type="image/svg+xml" href="../pico-botella-icon.svg" />
+    <link rel="stylesheet" href="../styles/user_stories.css" />
+    <link rel="stylesheet" href="../styles/design_patterns.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">
+            <span class="logo-label">Patrones</span>
+            Patrones de Diseno
+          </h1>
+          <div class="project-info">
+            <span class="project-name">Pico Botella</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center">
+            <a href="../index.html" class="back-button" aria-label="Volver al inicio">
+              <span>&#8592;</span> Inicio
+            </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+              <span class="theme-icon">Oscuro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+
+        <!-- Introduccion -->
+        <section class="dp-intro" id="dp-intro">
+          <!-- Renderizado dinamico -->
+        </section>
+
+        <!-- Indice rapido -->
+        <nav class="dp-toc" id="dp-toc" aria-label="Indice de categorias">
+          <!-- Renderizado dinamico -->
+        </nav>
+
+        <!-- Categorias con patrones -->
+        <section class="dp-categories" id="dp-categories" aria-label="Categorias de patrones">
+          <!-- Renderizado dinamico -->
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer dp-footer">
+      <div class="container">
+        <p>2026 Pico Botella - Patrones de diseno del sistema</p>
+        <p>Equipo Dispositivos Moviles</p>
+      </div>
+    </footer>
+
+    <script src="../data/design_patterns_data.js"></script>
+    <script src="../scripts/design_patterns.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mapa de sitio del proyecto Pico Botella"
+    />
+    <title>Mapa del Sitio - Pico Botella</title>
+    <link rel="icon" type="image/svg+xml" href="../pico-botella-icon.svg" />
+    <link rel="stylesheet" href="../styles/user_stories.css" />
+    <link rel="stylesheet" href="../styles/site_map.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">
+            <span class="logo-icon"></span>
+            Mapa de Sitio
+          </h1>
+          <div class="project-info">
+            <span class="project-name">Pico Botella</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center">
+            <a
+              href="../index.html"
+              class="back-button"
+              aria-label="Volver al inicio"
+            >
+              <span>←</span> Inicio
+            </a>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Cambiar tema"
+            >
+              <span class="theme-icon">Oscuro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <!-- Información del proyecto -->
+        <section class="info-section">
+          <p class="info-description" id="site-description">
+            Diagrama HTML interactivo pensado para la presentación: muestra qué
+            ve un usuario antes de loguearse y la estructura interna.
+          </p>
+        </section>
+
+        <!-- Leyenda de badges -->
+        <section class="controls">
+          <div class="badge-legend" id="badge-legend">
+            <!-- Se cargará dinámicamente -->
+          </div>
+          <div class="control-buttons">
+            <button class="btn-control" id="expandAll">Expandir todo</button>
+            <button class="btn-control" id="collapseAll">Colapsar todo</button>
+          </div>
+        </section>
+
+        <!-- Árbol del mapa de sitio -->
+        <section class="site-tree-section">
+          <div id="site-tree-container" class="site-tree">
+            <!-- Se cargará dinámicamente desde site_map_data.js -->
+          </div>
+
+          <div
+            id="loading"
+            class="loading"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+
+          <div id="error-state" class="error-state" hidden role="alert">
+            <h2>Error al cargar el mapa</h2>
+            <p id="error-message"></p>
+          </div>
+        </section>
+
+        <p class="footer-note">
+          Consejo: usa los botones <strong>Expandir todo</strong> /
+          <strong>Colapsar todo</strong> para preparar la diapositiva según la
+          duración de tu exposición.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Pico Botella - Dispositivos Moviles</p>
+        <p>Estructura de sitio para presentación del proyecto</p>
+      </div>
+    </footer>
+
+    <script src="../data/site_map_data.js"></script>
+    <script src="../scripts/site_map.js"></script>
+  </body>
+</html>
