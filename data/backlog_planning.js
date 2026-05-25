@@ -10,7 +10,7 @@ const BACKLOG_PLANNING = {
     start: '2026-06-02T18:00:00',
     monitor: '2026-06-09T18:00:00',
     end: '2026-06-16T18:00:00',
-    totalPoints: 18,
+    totalPoints: 38,
     epics: [
       { id: 'E-UI', title: 'Interfaz y Experiencia (UI/UX)' },
       { id: 'E-CORE', title: 'Núcleo de juego y lógica' },

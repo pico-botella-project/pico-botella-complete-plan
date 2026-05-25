@@ -6,10 +6,10 @@ const TEAM_DATA = {
   slogan: "Sprint 1 - Pico Botella",
   description:
     "Equipo de cinco integrantes trabajando el primer sprint del proyecto Pico Botella con enfoque en interfaz, persistencia local y logica del juego.",
-  velocity: 18,
+  velocity: 38,
   sprintDuration: "1 semana",
   totalSprints: 1,
-  totalPoints: 18,
+  totalPoints: 38,
   yearsWorkingTogether: 1,
   epics: [
     { id: "E-UI", name: "Interfaz y Experiencia", color: "#f59e0b", description: "Splash, home, toolbar y dialogos del juego." },
@@ -23,7 +23,7 @@ const TEAM_DATA = {
       name: "Sprint 1",
       duration: "Semana 1",
       color: "#f59e0b",
-      totalPoints: 18,
+      totalPoints: 38,
       goal: "Construir la base visual y funcional de Pico Botella con Splash, Home, toolbar, CRUD local y giro inicial.",
       teamNote:
         "Ivan lidera la integracion tecnica, Andrey define la experiencia visual, Juan Francesco resuelve la persistencia y Dylan y Jose apoyan el ajuste de flujos y presentacion.",

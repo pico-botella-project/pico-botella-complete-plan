@@ -66,38 +66,104 @@ function calcSprintStoryPoints(sprint) {
   return (sprint.stories || []).reduce((total, story) => total + (story.points || 0), 0);
 }
 
-function buildJiraCsv(stories) {
+function csvEscape(value) {
+  return '"' + String(value ?? '').replace(/"/g, '""') + '"';
+}
+
+function derivePriority(points) {
+  if (points >= 8) return "High";
+  if (points >= 5) return "Medium";
+  if (points >= 2) return "Low";
+  return "Lowest";
+}
+
+function buildJiraCsv(backlog) {
   const rows = [];
-  rows.push(['Summary', 'Description', 'Acceptance Criteria', 'Assignee', 'Epic Link', 'Story Points', 'Sprint', 'Labels'].join(','));
+  rows.push([
+    "Issue Type",
+    "Issue ID",
+    "Parent",
+    "Summary",
+    "Description",
+    "Assignee",
+    "Priority",
+    "Labels",
+    "Story Points",
+    "Acceptance Criteria",
+    "Definition of Done",
+  ].join(","));
 
-  stories.forEach((story) => {
-    const summary = (story.title || '').replace(/,/g, '');
-    const description = (story.description || '').replace(/\n/g, ' ').replace(/,/g, '');
-    const acceptance = (Array.isArray(story.acceptanceCriteria) ? story.acceptanceCriteria.join('; ') : '').replace(/,/g, '');
-    const assignee = (story.assignedTo || '').replace(/,/g, '');
-    const epic = story.epic || '';
-    const points = story.points || '';
-    const sprint = story.sprint || '';
-    const labels = (story.labels || []).join(';');
+  const epics = (backlog.sprint1 && backlog.sprint1.epics) || [];
+  const stories = (backlog.sprint1 && backlog.sprint1.userStories) || [];
 
-    rows.push([summary, description, acceptance, assignee, epic, points, sprint, labels].join(','));
+  epics.forEach((epic) => {
+    const epicId = `tmp-epic-${epic.id}`;
+    rows.push([
+      csvEscape("Epic"),
+      csvEscape(epicId),
+      csvEscape(""),
+      csvEscape(epic.title || epic.name || epic.id),
+      csvEscape(epic.description || "Epic del Sprint 1"),
+      csvEscape(""),
+      csvEscape("Medium"),
+      csvEscape(["picobotella", "sprint1", epic.id].filter(Boolean).join(";")),
+      csvEscape(""),
+      csvEscape(""),
+      csvEscape(""),
+    ].join(","));
   });
 
-  return rows.join('\n');
+  stories.forEach((story) => {
+    const storyId = `tmp-story-${story.code}`;
+    const parentId = `tmp-epic-${story.epic}`;
+    const labels = ["picobotella", "sprint1", story.epic, story.sprint].filter(Boolean).join(";");
+    rows.push([
+      csvEscape("Story"),
+      csvEscape(storyId),
+      csvEscape(parentId),
+      csvEscape(story.title || ""),
+      csvEscape(story.description || ""),
+      csvEscape(""),
+      csvEscape(derivePriority(story.points || 0)),
+      csvEscape(labels),
+      csvEscape(story.points || 0),
+      csvEscape(Array.isArray(story.acceptanceCriteria) ? story.acceptanceCriteria.join("; ") : ""),
+      csvEscape(Array.isArray(story.definitionOfDone) ? story.definitionOfDone.join("; ") : ""),
+    ].join(","));
+
+    (story.tasks || []).forEach((task) => {
+      const taskId = `tmp-task-${task.id}`;
+      rows.push([
+        csvEscape("Sub-task"),
+        csvEscape(taskId),
+        csvEscape(storyId),
+        csvEscape(task.title || ""),
+        csvEscape(task.description || task.role || ""),
+        csvEscape(""),
+        csvEscape("Medium"),
+        csvEscape(["picobotella", "sprint1", task.role, story.epic].filter(Boolean).join(";")),
+        csvEscape(""),
+        csvEscape(""),
+        csvEscape(""),
+      ].join(","));
+    });
+  });
+
+  return rows.join("\r\n");
 }
 
 function exportJiraCsv() {
-  if (typeof BACKLOG_PLANNING === "undefined" || !BACKLOG_PLANNING.sprint1) {
+  if (typeof BACKLOG_PLANNING === "undefined") {
     alert("No se encontraron datos del backlog para exportar.");
     return;
   }
 
-  const csv = buildJiraCsv(BACKLOG_PLANNING.sprint1.userStories || []);
+  const csv = buildJiraCsv(BACKLOG_PLANNING);
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "pico-botella-backlog-jira.csv";
+  anchor.download = "pico-botella-jira-import.csv";
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();

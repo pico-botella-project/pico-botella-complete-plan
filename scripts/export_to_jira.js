@@ -1,7 +1,6 @@
 /**
  * export_to_jira.js
- * Simple Node script to export backlog_planning Sprint 1 user stories to a CSV
- * suitable for Jira CSV import (Summary, Description, Acceptance Criteria, Assignee, Epic, Story Points, Sprint, Labels)
+ * Exports Pico Botella backlog data to a Jira-compatible CSV with hierarchy.
  * Usage: node scripts/export_to_jira.js
  */
 
@@ -12,36 +11,101 @@ const dataPath = path.join(__dirname, '../data/backlog_planning.js');
 let backlog;
 try {
   backlog = require(dataPath);
-  // If module exports object with BACKLOG_PLANNING
   if (backlog && backlog.BACKLOG_PLANNING) backlog = backlog.BACKLOG_PLANNING;
 } catch (err) {
   console.error('No se pudo cargar backlog_planning.js:', err.message);
   process.exit(1);
 }
 
-const stories = (backlog.sprint1 && backlog.sprint1.userStories) || [];
-if (!stories.length) {
-  console.error('No se encontraron historias en backlog_planning.sprint1.userStories');
-  process.exit(1);
+function csvEscape(value) {
+  return '"' + String(value ?? '').replace(/"/g, '""') + '"';
 }
 
-const rows = [];
-// Header for Jira CSV
-rows.push(['Summary', 'Description', 'Acceptance Criteria', 'Assignee', 'Epic Link', 'Story Points', 'Sprint', 'Labels'].join(','));
+function derivePriority(points) {
+  if (points >= 8) return 'High';
+  if (points >= 5) return 'Medium';
+  if (points >= 2) return 'Low';
+  return 'Lowest';
+}
 
-stories.forEach((s) => {
-  const summary = (s.title || '').replace(/,/g, '');
-  const description = (s.description || '').replace(/\n/g, ' ').replace(/,/g, '');
-  const acceptance = (Array.isArray(s.acceptanceCriteria) ? s.acceptanceCriteria.join('; ') : '').replace(/,/g, '');
-  const assignee = (s.assignedTo || '').replace(/,/g, '');
-  const epic = s.epic || '';
-  const points = s.points || '';
-  const sprint = s.sprint || '';
-  const labels = (s.labels || []).join(';');
+function buildCsv(sourceBacklog) {
+  const rows = [];
+  rows.push([
+    'Issue Type',
+    'Issue ID',
+    'Parent',
+    'Summary',
+    'Description',
+    'Assignee',
+    'Priority',
+    'Labels',
+    'Story Points',
+    'Acceptance Criteria',
+    'Definition of Done',
+  ].join(','));
 
-  rows.push([summary, description, acceptance, assignee, epic, points, sprint, labels].join(','));
-});
+  const sprint = sourceBacklog.sprint1 || {};
+  const epics = Array.isArray(sprint.epics) ? sprint.epics : [];
+  const stories = Array.isArray(sprint.userStories) ? sprint.userStories : [];
 
+  epics.forEach((epic) => {
+    const epicId = `tmp-epic-${epic.id}`;
+    rows.push([
+      csvEscape('Epic'),
+      csvEscape(epicId),
+      csvEscape(''),
+      csvEscape(epic.title || epic.name || epic.id),
+      csvEscape(epic.description || 'Epic del Sprint 1'),
+      csvEscape(''),
+      csvEscape('Medium'),
+      csvEscape(['picobotella', 'sprint1', epic.id].filter(Boolean).join(';')),
+      csvEscape(''),
+      csvEscape(''),
+      csvEscape(''),
+    ].join(','));
+  });
+
+  stories.forEach((story) => {
+    const storyId = `tmp-story-${story.code}`;
+    const parentId = `tmp-epic-${story.epic}`;
+    const labels = ['picobotella', 'sprint1', story.epic, story.sprint].filter(Boolean).join(';');
+
+    rows.push([
+      csvEscape('Story'),
+      csvEscape(storyId),
+      csvEscape(parentId),
+      csvEscape(story.title || ''),
+      csvEscape(story.description || ''),
+      csvEscape(''),
+      csvEscape(derivePriority(story.points || 0)),
+      csvEscape(labels),
+      csvEscape(story.points || 0),
+      csvEscape(Array.isArray(story.acceptanceCriteria) ? story.acceptanceCriteria.join('; ') : ''),
+      csvEscape(Array.isArray(story.definitionOfDone) ? story.definitionOfDone.join('; ') : ''),
+    ].join(','));
+
+    (story.tasks || []).forEach((task) => {
+      const taskId = `tmp-task-${task.id}`;
+      rows.push([
+        csvEscape('Sub-task'),
+        csvEscape(taskId),
+        csvEscape(storyId),
+        csvEscape(task.title || ''),
+        csvEscape(task.description || task.role || ''),
+        csvEscape(''),
+        csvEscape('Medium'),
+        csvEscape(['picobotella', 'sprint1', task.role, story.epic].filter(Boolean).join(';')),
+        csvEscape(''),
+        csvEscape(''),
+        csvEscape(''),
+      ].join(','));
+    });
+  });
+
+  return rows.join('\r\n');
+}
+
+const rows = buildCsv(backlog);
 const outFile = path.join(__dirname, '../data/backlog_jira_export.csv');
-fs.writeFileSync(outFile, rows.join('\n'), 'utf8');
+fs.writeFileSync(outFile, rows, 'utf8');
 console.log('CSV export generado en:', outFile);

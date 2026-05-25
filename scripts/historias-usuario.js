@@ -330,10 +330,8 @@ function updateStats() {
   const validationLabel =
     state.sprintCapacity > 0
       ? sprintPoints === state.sprintCapacity
-        ? "validación OK"
-        : sprintPoints > state.sprintCapacity
-          ? "excede capacidad"
-          : "por completar"
+        ? "capacidad alineada"
+        : "capacidad en revisión"
       : "sin capacidad definida";
 
   elements.totalStories.textContent = state.allStories.length;
