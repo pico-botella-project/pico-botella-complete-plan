@@ -35,43 +35,40 @@ const PROJECT_DATA = {
       "Pagos o integraciones externas.",
     ],
   },
-  legalFramework: [
-    {
-      icon: "🧭",
-      title: "Enunciado y alcance",
-      content:
-        "El proyecto toma como base el enunciado del miniproyecto y limita su ejecución a la documentación y construcción del Sprint 1.",
+  // Secciones vaciadas por petición: conservar títulos en blanco
+  legalFramework: [],
+  roles: [],
+  states: [],
+  architecture: {},
+  security: [],
+  links: {
+    jira: {
+      label: "Jira",
+      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PC/summary?atlOrigin=eyJpIjoiODZjOGI4ZmRlYjZlNDIxMDgxZGZjMDIyOGEzZjVlMTkiLCJwIjoiaiJ9",
+      icon: "J",
+      description: "Tablero de planeación y seguimiento del sprint.",
     },
-    {
-      icon: "📝",
-      title: "Lineamientos de entrega",
-      content:
-        "La planeación usa backlog, Jira, repositorio y validación en navegador como evidencias principales de avance.",
+    figma: {
+      label: "Figma",
+      url: "https://figma.com",
+      icon: "F",
+      description: "Referencia visual del flujo y de las pantallas.",
     },
-    {
-      icon: "✅",
-      title: "Criterios de validación",
-      content:
-        "Las páginas deben cargar desde datos, el tema debe mantenerse entre vistas y el exportador debe generar archivos listos para Jira.",
+    repoPlanning: {
+      label: "Repositorio de planeación",
+      url: "",
+      icon: "P",
+      description: "",
     },
-  ],
-  roles: [
-    {
-      name: "Lider de producto",
-      description:
-        "Define alcance, prioriza entregas y valida coherencia con el enunciado.",
-      color: "#f97316",
-      icon: "🧭",
-      functions: [
-        "Organizar la planeación del sprint",
-        "Revisar cumplimiento de lineamientos",
-        "Alinear evidencias con la documentación",
-      ],
-      restrictions: ["No debe cerrar historias sin validación del equipo."],
+    repoWork: {
+      label: "Repositorio de trabajo",
+      url: "https://github.com/pico-botella-project/pico-botella-mobile-app.git",
+      icon: "M",
+      description: "",
     },
-        legalFramework: [],
-        roles: [],
-        states: [],
-        architecture: {},
-        security: [],
-      icon: "🎨",
+  },
+};
+
+if (typeof module !== "undefined") {
+  module.exports = { PROJECT_DATA };
+}
