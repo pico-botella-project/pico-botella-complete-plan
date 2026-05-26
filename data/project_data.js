@@ -3,15 +3,14 @@
 
 const PROJECT_DATA = {
   name: "Pico Botella",
-  fullName: "Pico Botella - Planeación general del proyecto",
-  tagline: "Una plantilla ligera para organizar Sprint 1 de un proyecto móvil.",
-  version: "2.0.0",
-  status: "Sprint 1 - MVP movil",
-  team: "Dispositivos Moviles",
+  fullName: "",
+  tagline: "",
+  version: "",
+  status: "",
+  team: "",
   description:
     "Aplicacion movil enfocada en una experiencia simple de giro de botella, retos locales y navegacion rapida entre pantallas basicas.",
-  context:
-    "El proyecto se desarrolla para el curso Dispositivos Moviles como una propuesta de juego interactivo con almacenamiento local de retos y flujo visual sencillo.",
+  context: "",
   objectives: {
     general:
       "Construir una aplicacion movil funcional para Pico Botella con interfaz clara, giro aleatorio de botella y administracion local de retos.",
@@ -23,17 +22,8 @@ const PROJECT_DATA = {
     ],
   },
   scope: {
-    inScope: [
-      "Pantalla splash y home principal.",
-      "Giro de botella y reto aleatorio.",
-      "CRUD local de retos.",
-      "Botones de audio, ayuda y compartir.",
-    ],
-    outScope: [
-      "Autenticacion de usuarios.",
-      "Sincronizacion en la nube.",
-      "Pagos o integraciones externas.",
-    ],
+    inScope: [],
+    outScope: [],
   },
   legalFramework: [
     {
@@ -237,7 +227,7 @@ const PROJECT_DATA = {
   links: {
     jira: {
       label: "Jira",
-      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PICO/boards/68/backlog?selectedIssue=PICO-1&atlOrigin=eyJpIjoiMTRmZDY5NmVmMzM4NDllZjgwOGU4YmEyOWU4ZDE5YzQiLCJwIjoiaiJ9",
+      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PC/summary?atlOrigin=eyJpIjoiODZjOGI4ZmRlYjZlNDIxMDgxZGZjMDIyOGEzZjVlMTkiLCJwIjoiaiJ9",
       icon: "J",
       description: "Tablero de planeación y seguimiento del sprint.",
     },
@@ -249,15 +239,15 @@ const PROJECT_DATA = {
     },
     repoPlanning: {
       label: "Repositorio de planeación",
-      url: "https://github.com/pico-botella-project/pico-botella-complete-plan.git",
+      url: "",
       icon: "P",
-      description: "Sitio y documentación de la planeación general.",
+      description: "",
     },
     repoWork: {
       label: "Repositorio de trabajo",
       url: "https://github.com/pico-botella-project/pico-botella-mobile-app.git",
       icon: "M",
-      description: "Aplicación móvil en desarrollo.",
+      description: "",
     },
   },
 };
