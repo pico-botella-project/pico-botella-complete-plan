@@ -39,26 +39,29 @@ const PROJECT_DATA = {
   legalFramework: [],
   roles: [],
   states: [],
-  architecture: {},
+  architecture: {
+    description: "",
+    principles: [],
+    client: { label: "", connectionLabel: "", boxes: [] },
+    gateway: { label: "", connectionLabel: "", boxes: [] },
+    services: [],
+    dataLayer: { label: "", boxes: [] },
+    infrastructure: [],
+  },
   security: [],
   links: {
     jira: {
       label: "Jira",
-      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PC/summary?atlOrigin=eyJpIjoiODZjOGI4ZmRlYjZlNDIxMDgxZGZjMDIyOGEzZjVlMTkiLCJwIjoiaiJ9",
+      url: "https://correounivalle-team-a619mkqy.atlassian.net/jira/software/projects/PC/boards/71?atlOrigin=eyJpIjoiZGU0ZDFmZGVkMDYxNDY1MWJhOWRiNWZmMTUxYjg2MDAiLCJwIjoiaiJ9",
       icon: "J",
       description: "Tablero de planeación y seguimiento del sprint.",
     },
-    figma: {
-      label: "Figma",
-      url: "https://figma.com",
-      icon: "F",
-      description: "Referencia visual del flujo y de las pantallas.",
-    },
+   
     repoPlanning: {
       label: "Repositorio de planeación",
-      url: "",
+      url: "https://github.com/pico-botella-project/pico-botella-complete-plan.git",
       icon: "P",
-      description: "",
+      description: "Repositorio con toda la documentación y archivos de planeación.",
     },
     repoWork: {
       label: "Repositorio de trabajo",
